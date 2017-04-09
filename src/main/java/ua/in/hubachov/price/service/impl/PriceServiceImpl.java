@@ -22,11 +22,12 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public Product getProduct(final String url) {
-        return productParser.parse(url);
+        final Product product = productParser.parse(url);
+        return product == null ? generateRandomProduct() : product;
     }
 
     private Product generateRandomProduct() {
-        return Product.create(randomString("product"), randomDouble(), randomBoolean());
+        return Product.create(randomString("WRONG URL "), randomDouble(), randomBoolean());
     }
 
     private String randomString(final String prefix) {

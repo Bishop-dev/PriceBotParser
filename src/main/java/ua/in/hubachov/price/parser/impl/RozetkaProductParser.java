@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import ua.in.hubachov.price.model.Product;
 import ua.in.hubachov.price.parser.ProductParser;
 
+import java.net.MalformedURLException;
+
 /**
  * Created by Sashko on 4/8/17.
  */
@@ -32,6 +34,8 @@ public class RozetkaProductParser implements ProductParser {
                 available = false;
             }
             return Product.create(productName, price, available);
+        } catch (MalformedURLException mfue) {
+            mfue.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
