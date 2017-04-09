@@ -46,4 +46,14 @@ public class Product {
     public void setAvailable(final boolean available) {
         this.available = available;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", available=" + available +
+                '}';
+    }
+
 }
